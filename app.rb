@@ -22,6 +22,7 @@ get'/contacts' do
 
 end
 
+
 post "/visit" do
 
 	@username = params[:username]
@@ -34,15 +35,13 @@ post "/visit" do
  		:phone => 'Введите телефон',
  		:datetime => 'Введите дату и время'}
 
- 		hh.each do |key,value|
- 			if params[key] == ''
- 				@error =hh[key]
-
- 				return erb :visit
+ 		@error = hh.select {|key,_| params[key] == ""}.values.join(",")
+ 		
+ 		if @error !=''
+ 			return erb :visit
  			end
  			
- 		end
-
+ 
 erb "OK, username is #{@username},#{@phone},#{@datetime},#{@barber}, #{@color}"
 
 	end 
