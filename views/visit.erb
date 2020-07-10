@@ -20,10 +20,10 @@
 <div class="form-group">
     <label for="exampleFormControlSelect1">Ваш парикмахер</label>
     <select name="barber" class="form-control" id="exampleFormControlSelect1">
-      <option>Jessie Pinkman</option>
-      <option>Walter White</option>
-      <option>Gus Fring</option>
-      <option>Hank</option>
+      <option <%= @barber == 'Jessie Pinkman' ? "selected" : '' %>>Jessie Pinkman</option>
+      <option <%= @barber == 'Walter White' ? "selected" : '' %>>Walter White</option>
+      <option <%= @barber == 'Gus Fring' ? "selected" : '' %>>Gus Fring</option>
+      <option <%= @barber == 'Hank' ? "selected" : '' %>>Hank</option>
       
     </select>
     <div class="form-group">
